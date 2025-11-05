@@ -15,8 +15,8 @@ my $repo    = q(silicon_compiler_mod_A_in_mod_B);                               
 my $user    = q(philiprbrenan);                                                 # User
 my $home    = fpd q(/home/phil/sc/), $repo;                                     # Home folder
 my $wf      = q(.github/workflows/run.yml);                                     # Work flow on Ubuntu
-my $docker  = "ghcr.io/philiprbrenan/silicon_compiler_docker_image:0890fa2e60d6322611358f53bf1ff0d9b5e53926";
-
+# https://github.com/philiprbrenan/silicon_compiler_docker_image
+my $docker  = "ghcr.io/philiprbrenan/silicon_compiler_docker_image:d40b8f3026e3cd169b7ea1fb737724814be57283";
 my $shaFile = fpe $home, q(sha);                                                # Sh256 file sums for each known file to detect changes
 my @ext     = qw(.md .pl .py .sh);                                              # Extensions of files to upload to github
 
