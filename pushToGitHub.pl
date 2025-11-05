@@ -18,7 +18,7 @@ my $wf      = q(.github/workflows/run.yml);                                     
 my $docker  = "ghcr.io/philiprbrenan/silicon_compiler_docker_image:0890fa2e60d6322611358f53bf1ff0d9b5e53926";
 
 my $shaFile = fpe $home, q(sha);                                                # Sh256 file sums for each known file to detect changes
-my @ext     = qw(.md .pl .py);                                                  # Extensions of files to upload to github
+my @ext     = qw(.md .pl .py .sh);                                              # Extensions of files to upload to github
 
 say STDERR timeStamp,  " Push to github $repo";
 
@@ -66,7 +66,7 @@ jobs:
 
     - name: Run Silicon compiler in a docker container
       run: |
-        docker run --rm -v "\$(pwd):/opt/siliconcompiler" $docker python3 top.py
+        docker run --rm -v "\$(pwd):/opt/siliconcompiler" $docker bash -c run.sh
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact\@v4
