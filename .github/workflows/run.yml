@@ -1,4 +1,4 @@
-# Test 2025-11-05 at 20:05:04
+# Test 2025-11-05 at 20:13:09
 
 name: Test
 run-name: silicon_compiler_mod_A_in_mod_B
@@ -19,7 +19,7 @@ jobs:
 
     - name: Run Silicon compiler in a docker container
       run: |
-        docker run --rm -v "$(pwd):/opt/siliconcompiler" ghcr.io/philiprbrenan/silicon_compiler_docker_image:0890fa2e60d6322611358f53bf1ff0d9b5e53926 python3 top.py
+        docker run --rm -v "$(pwd):/opt/siliconcompiler" ghcr.io/philiprbrenan/silicon_compiler_docker_image:0890fa2e60d6322611358f53bf1ff0d9b5e53926 bash -c run.sh
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact@v4
