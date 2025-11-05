@@ -1,4 +1,5 @@
 pwd
 ls -la
 pip list
-python top.py
+export PYTHONPATH=/opt/siliconcompiler:$PYTHONPATH
+python3 top.py
