@@ -1,6 +1,4 @@
 pwd
-whoami
 ls -la
-echo $PATH
-source activate
+pip list
 python3 top.py
