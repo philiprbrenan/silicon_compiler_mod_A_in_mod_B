@@ -66,7 +66,7 @@ jobs:
 
     - name: Run Silicon compiler in a docker container
       run: |
-        docker run --rm -v ".:/workspace/verilog" $docker python3 top.py
+        docker run --rm -v "$(pwd):/opt" $docker python3 top.py
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact\@v4
