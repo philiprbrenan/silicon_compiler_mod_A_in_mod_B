@@ -33,22 +33,23 @@
 # Import the tools to be used:
 #
 
-import os
-from pathlib import Path
-
-from siliconcompiler import Design, ASIC, StdCellLibrary
-from siliconcompiler.flows import asicflow
-from siliconcompiler.targets import skywater130_demo
-from siliconcompiler.schema_support.option import OptionSchema
-from siliconcompiler.tools import get_task
-from siliconcompiler.tools.klayout import KLayoutLibrary
-from siliconcompiler.tools.openroad import OpenROADStdCellLibrary
-from siliconcompiler.tools.openroad.write_data import WriteViewsTask
-from siliconcompiler.tools.yosys import YosysStdCellLibrary
-import multiprocessing as mp
-
 if __name__ == "__main__":
+  import multiprocessing as mp
   mp.set_start_method("fork")                                                   # Use fork instead of spawn
+
+  import os
+  from pathlib import Path
+
+  from siliconcompiler import Design, ASIC, StdCellLibrary
+  from siliconcompiler.flows import asicflow
+  from siliconcompiler.targets import skywater130_demo
+  from siliconcompiler.schema_support.option import OptionSchema
+  from siliconcompiler.tools import get_task
+  from siliconcompiler.tools.klayout import KLayoutLibrary
+  from siliconcompiler.tools.openroad import OpenROADStdCellLibrary
+  from siliconcompiler.tools.openroad.write_data import WriteViewsTask
+  from siliconcompiler.tools.yosys import YosysStdCellLibrary
+
 #
 # Parameters
 # ----------
