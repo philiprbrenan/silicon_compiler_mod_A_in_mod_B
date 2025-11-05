@@ -65,6 +65,8 @@ jobs:
 
     - name: Run Silicon compiler in a docker container
       run: |
+        pwd
+        ls -la
         docker run --rm -v "\$(pwd):/opt/siliconcompiler" $docker bash -c "ls -la"
 
     - name: Upload all files as artifact
