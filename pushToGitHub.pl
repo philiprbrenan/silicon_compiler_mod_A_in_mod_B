@@ -67,7 +67,7 @@ jobs:
       run: |
         pwd
         ls -la
-        docker run --rm -v "\$(pwd):/opt/siliconcompiler" $docker bash run.sh
+        docker run --rm -v "\$(pwd):/opt/siliconcompiler" $docker bash -x run.sh
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact\@v4
