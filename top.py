@@ -45,8 +45,10 @@ from siliconcompiler.tools.klayout import KLayoutLibrary
 from siliconcompiler.tools.openroad import OpenROADStdCellLibrary
 from siliconcompiler.tools.openroad.write_data import WriteViewsTask
 from siliconcompiler.tools.yosys import YosysStdCellLibrary
+import multiprocessing as mp
 
 if __name__ == "__main__":
+  mp.set_start_method("fork")                                                   # Use fork instead of spawn
 #
 # Parameters
 # ----------
