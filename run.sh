@@ -1,5 +1,5 @@
 pwd
 ls -la
 pip list
-export PYTHONPATH=/opt/siliconcompiler:$PYTHONPATH
+export PATH="/root/.local/bin:$PATH"
 python3 top.py
