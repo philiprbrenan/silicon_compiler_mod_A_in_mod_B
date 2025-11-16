@@ -1,6 +1,6 @@
 #!/usr/bin/perl -I/home/phil/perl/cpan/DataTableText/lib/ -I/home/phil/perl/cpan/GitHubCrud/lib/
 #-------------------------------------------------------------------------------
-# Use silicon compiler via a docker image to place one design in another
+# Use silicon compiler via a docker image previously built on github
 # Philip R Brenan at gmail dot com, Appa Apps Ltd Inc., 2025
 #-------------------------------------------------------------------------------
 use v5.38;
