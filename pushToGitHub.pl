@@ -14,8 +14,7 @@ use GitHub::Crud qw(:all);
 my $repo    = q(silicon_compiler_mod_A_in_mod_B);                               # Repo
 my $user    = q(philiprbrenan);                                                 # User
 my $home    = fpd q(/home/phil/sc/), $repo;                                     # Home folder
-my $wf      = q(.github/workflows/run.yml);                                     # Work flow on Ubuntu
-# https://github.com/philiprbrenan/silicon_compiler__docker_image
+my $wf      = q(.github/workflows/mod_A_in_mod_B.yml);                          # Work flow on Ubuntu
 my $docker  = "ghcr.io/philiprbrenan/silicon_compiler__docker_image:c9de06b93e4525fe8b3a196a420b73e054f044e8"; # Docker image built locally
    $docker  = "ghcr.io/philiprbrenan/silicon_compiler_docker_image_asic:latest";# Docker image built on github
 my $shaFile = fpe $home, q(sha);                                                # Sh256 file sums for each known file to detect changes
@@ -54,21 +53,6 @@ on:
   push:
     paths:
       - '**/run.yml'
-
-  workflow_dispatch:
-    inputs:
-      moduleA:
-        description: "Name of the top level module"
-        required: true
-        default: "top"
-      moduleB:
-        description: "Name of the child module"
-        required: true
-        default: "child"
-      doPlace:
-        description: "Enable placement step"
-        required: false
-        default: "yes"
 
 jobs:
 
