@@ -1,4 +1,4 @@
-# Test 2025-11-16 at 23:24:45
+# Test 2025-11-17 at 00:28:41
 
 name: Test
 run-name: silicon_compiler_mod_A_in_mod_B
@@ -7,6 +7,21 @@ on:
   push:
     paths:
       - '**/run.yml'
+
+  workflow_dispatch:
+    inputs:
+      moduleA:
+        description: "Name of the top level module"
+        required: true
+        default: "top"
+      moduleB:
+        description: "Name of the child module"
+        required: true
+        default: "child"
+      doPlace:
+        description: "Enable placement step"
+        required: false
+        default: "yes"
 
 jobs:
 
