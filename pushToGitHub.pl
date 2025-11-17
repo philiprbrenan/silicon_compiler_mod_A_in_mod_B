@@ -55,6 +55,21 @@ on:
     paths:
       - '**/run.yml'
 
+  workflow_dispatch:
+    inputs:
+      moduleA:
+        description: "Name of the top level module"
+        required: true
+        default: "top"
+      moduleB:
+        description: "Name of the child module"
+        required: true
+        default: "child"
+      doPlace:
+        description: "Enable placement step"
+        required: false
+        default: "yes"
+
 jobs:
 
   test:
