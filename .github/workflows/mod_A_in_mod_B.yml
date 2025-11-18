@@ -1,4 +1,4 @@
-# Test 2025-11-18 at 01:29:57
+# Test 2025-11-18 at 01:32:23
 
 name: Test
 run-name: silicon_compiler_mod_A_in_mod_B
@@ -6,7 +6,7 @@ run-name: silicon_compiler_mod_A_in_mod_B
 on:
   push:
     paths:
-      - '**/run.yml'
+      - .github/workflows/mod_A_in_mod_B.yml
 
 jobs:
 
