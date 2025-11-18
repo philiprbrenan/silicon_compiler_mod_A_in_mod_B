@@ -57,7 +57,7 @@ run-name: $repo
 on:
   push:
     paths:
-      - '**/run.yml'
+      - $wf
 
 jobs:
 
