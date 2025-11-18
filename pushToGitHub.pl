@@ -16,7 +16,12 @@ my $user    = q(philiprbrenan);                                                 
 my $home    = fpd q(/home/phil/sc/), $repo;                                     # Home folder
 my $wf      = q(.github/workflows/mod_A_in_mod_B.yml);                          # Work flow on Ubuntu
 my $docker  = "ghcr.io/philiprbrenan/silicon_compiler__docker_image:c9de06b93e4525fe8b3a196a420b73e054f044e8"; # Docker image built locally
-   $docker  = "ghcr.io/philiprbrenan/silicon_compiler_docker_image_asic:latest";# Docker image built on github
+   $docker  = "ghcr.io/philiprbrenan/silicon_compiler_docker_image_asic:latest";# Docker image built on github by me
+   $docker  = "docker pull ghcr.io/siliconcompiler/sc_tools:12e73c51eadaa5990a9367cc4e049c39c28ca725";# Docker image built on Silicon Compiler
+
+my $dockerPath = "/app";                                                        # My version - Path to working directory in docker image so we can mirror on calling machine
+   $dockerPath = "/sc_work";                                                    # Silicon comoiler version
+
 my $shaFile = fpe $home, q(sha);                                                # Sh256 file sums for each known file to detect changes
 my @ext     = qw(.md .pl .py .sh);                                              # Extensions of files to upload to github
 
@@ -67,7 +72,7 @@ jobs:
       run: |
         pwd
         ls -la
-        docker run --rm -v "\$(pwd):/app" $docker bash -x run.sh
+        docker run --rm -v "\$(pwd):$dockerPath" $docker bash -x run.sh
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact\@v4
