@@ -26,7 +26,16 @@ my @ext     = qw(.md .pl .py .sh);                                              
 
 say STDERR timeStamp,  " Push to github $repo";
 
+if (1)                                                                          # Create read me from python code
+ {my @p = map {length > 2 ? substr($_, 2) : "\n"}                               # Handle empty lines when removing comment start
+          grep {m(\A#)}                                                         # Read me is in comments
+          readFile fpe $home, $repo, q(py);                                     # Read python
+  shift @p;                                                                     # Remove shebang
+  owf(fpe($home, qw(README md)), join "", @p);                                  # Write extracted mark down to read me file
+ }
+
 my @files = searchDirectoryTreesForMatchingFiles($home, @ext);                  # Files to upload
+   @files = grep {!m(/build/)} @files;                                          # Filter out files that have not changed
    @files = changedFiles $shaFile, @files;                                      # Filter out files that have not changed
 
 if (!@files)                                                                    # No new files
@@ -71,7 +80,7 @@ jobs:
       run: |
         pwd
         ls -la
-        docker run --rm -v "\$(pwd):$dockerPath" $docker bash -x run.sh
+        docker run --rm -v "\$(pwd):$dockerPath" python3 $repo
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact\@v4
