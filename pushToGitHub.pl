@@ -35,7 +35,7 @@ if (1)                                                                          
  }
 
 my @files = searchDirectoryTreesForMatchingFiles($home, @ext);                  # Files to upload
-   @files = grep {!m(/build/)} @files;                                          # Filter out files that have not changed
+   @files = grep {!m(/(build|z)/)} @files;                                      # Filter out generated files
    @files = changedFiles $shaFile, @files;                                      # Filter out files that have not changed
 
 if (!@files)                                                                    # No new files
