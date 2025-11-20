@@ -1,4 +1,4 @@
-# Test 2025-11-18 at 23:35:11
+# Test 2025-11-20 at 01:44:27
 
 name: Test
 run-name: silicon_compiler_mod_A_in_mod_B
@@ -21,7 +21,7 @@ jobs:
       run: |
         pwd
         ls -la
-        docker run --rm -v "$(pwd):/sc_work" ghcr.io/siliconcompiler/sc_tools:12e73c51eadaa5990a9367cc4e049c39c28ca725 bash -x run.sh
+        docker run --rm -v "$(pwd):/app" docker pull ghcr.io/siliconcompiler/sc_runner:v0.35.3 bash -x run.sh
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact@v4
