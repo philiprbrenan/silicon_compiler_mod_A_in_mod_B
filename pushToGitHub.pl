@@ -18,8 +18,8 @@ my $wf      = q(.github/workflows/mod_A_in_mod_B.yml);                          
 my $docker  = "ghcr.io/philiprbrenan/silicon_compiler_docker_image_asic:latest";# Docker image built on github by me
    $docker  = "ghcr.io/siliconcompiler/sc_runner:v0.35.3";                      # Docker image built on Silicon Compiler
 
-my $dockerPath = "/sc_work";                                                    # Path to working directory in my version
-   $dockerPath = "/app";                                                        # Path to working directory in docker image provided by silicon compiler
+my $dockerPath = "/app";                                                        # Path to working directory in my version
+   $dockerPath = "/sc_work";                                                    # Path to working directory in docker image provided by silicon compiler
 
 my $shaFile = fpe $home, q(sha);                                                # Sh256 file sums for each known file to detect changes
 my @ext     = qw(.md .pl .py .sh);                                              # Extensions of files to upload to github
