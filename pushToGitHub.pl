@@ -16,7 +16,7 @@ my $user    = q(philiprbrenan);                                                 
 my $home    = fpd q(/home/phil/sc/), $repo;                                     # Home folder
 my $wf      = q(.github/workflows/mod_A_in_mod_B.yml);                          # Work flow on Ubuntu
 my $docker  = "ghcr.io/philiprbrenan/silicon_compiler_docker_image_asic:latest";# Docker image built on github by me
-   $docker  = "docker pull ghcr.io/siliconcompiler/sc_runner:v0.35.3";# Docker image built on Silicon Compiler
+   $docker  = "ghcr.io/siliconcompiler/sc_runner:v0.35.3";                      # Docker image built on Silicon Compiler
 
 my $dockerPath = "/sc_work";                                                    # Path to working directory in my version
    $dockerPath = "/app";                                                        # Path to working directory in docker image provided by silicon compiler
