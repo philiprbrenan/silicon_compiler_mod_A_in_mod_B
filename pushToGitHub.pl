@@ -80,7 +80,7 @@ jobs:
       run: |
         pwd
         ls -la
-        docker run --rm -v "\$(pwd):$dockerPath" $docker python3 $repo
+        docker run --rm -v "\$(pwd):$dockerPath" $docker python3 $repo.py
 
     - name: Upload all files as artifact
       uses: actions/upload-artifact\@v4
