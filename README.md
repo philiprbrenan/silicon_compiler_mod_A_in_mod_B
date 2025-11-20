@@ -17,7 +17,7 @@ All these steps are contained in the single Python [script](https://en.wikipedia
 
 To  run this [script](https://en.wikipedia.org/wiki/Scripting_language): 
 ```
-docker run --rm -v "$(pwd):/sc_work" ghcr.io/siliconcompiler/sc_runner:v0.35.3 python3 silicon_compiler_mod_A_in_mod_B
+docker run --rm -v "$(pwd):/sc_work" ghcr.io/siliconcompiler/sc_runner:v0.35.3 python3 silicon_compiler_mod_A_in_mod_B.py
 ```
 
 The output will appear in: ``./build/B/job0/write.gds/0/outputs/B.png``
