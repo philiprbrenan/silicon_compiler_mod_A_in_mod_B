@@ -20,7 +20,7 @@
 #
 # All these steps are contained in the single python script detailed below.
 #
-# To  run this script:
+# To  run this script:<br>
 #
 # ```
 # docker run --rm -v "$(pwd):/sc_work" ghcr.io/siliconcompiler/sc_runner:v0.35.3 python3 silicon_compiler_mod_A_in_mod_B.py
