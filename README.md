@@ -17,7 +17,7 @@ another [module](https://en.wikipedia.org/wiki/Modular_programming) by:
 
 All these steps are contained in the [python script](https://github.com/philiprbrenan/silicon_compiler_mod_A_in_mod_B/blob/main/silicon_compiler_mod_A_in_mod_B.py)  detailed below.
 
-To  run this script:<br>
+To run this [script](https://en.wikipedia.org/wiki/Scripting_language) from its containing folder:<br>
 
 ```bash
 docker run --rm -v "$(pwd):/sc_work" \
@@ -25,7 +25,7 @@ docker run --rm -v "$(pwd):/sc_work" \
   python3 silicon_compiler_mod_A_in_mod_B.py
 ```
 
-The output will appear in: ``./build/B/job0/write.gds/0/outputs/B.png``
+The image output will appear in: ``./build/B/job0/write.gds/0/outputs/B.png``
 
 ## Environment Setup
 
@@ -88,11 +88,11 @@ These files will contain the [Verilog](https://en.wikipedia.org/wiki/Verilog) ge
       input  wire          clk,
       input  wire[{N}-1:0] a,
       input  wire[{N}-1:0] b,
-      output reg [{N}-1:0] y
+      output wire[{N}-1:0] y
   );
 
     always @ (posedge clk) begin
-      y = a & b;
+      y <= a & b;
     end
   endmodule
   """
@@ -168,11 +168,11 @@ module {B}(
     input  wire[{N}-1:0] b1,
     input  wire[{N}-1:0] a2,
     input  wire[{N}-1:0] b2,
-    output reg [{N}-1:0] y
+    output wire[{N}-1:0] y
 );
 
-    reg[{N}-1:0] d1;
-    reg[{N}-1:0] d2;
+    wire[{N}-1:0] d1;
+    wire[{N}-1:0] d2;
 
     {A} D1 (.clk(clk), .a(a1), .b(b1), .y(d1));
     {A} D2 (.clk(clk), .a(a2), .b(b2), .y(d2));
