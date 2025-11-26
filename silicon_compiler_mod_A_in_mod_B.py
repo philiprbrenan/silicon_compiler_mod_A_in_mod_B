@@ -122,7 +122,7 @@ if __name__ == "__main__":
   class ModA(YosysStdCellLibrary, OpenROADStdCellLibrary, KLayoutLibrary):
     '''Module A definition'''
     def __init__(self, modA):
-    '''Module A constructor'''
+      '''Module A constructor'''
       super().__init__()
       self.set_name(f"mod{A}")
 
