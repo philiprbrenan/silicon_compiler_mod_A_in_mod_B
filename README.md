@@ -15,12 +15,15 @@ another [module](https://en.wikipedia.org/wiki/Modular_programming) by:
 
 5. Running the ASIC flow on [module](https://en.wikipedia.org/wiki/Modular_programming) **B**
 
-All these steps are contained in the single [Python](https://www.python.org/) [script](https://en.wikipedia.org/wiki/Scripting_language) detailed below.
+All these steps are contained in the [python script](https://github.com/philiprbrenan/silicon_compiler_mod_A_in_mod_B/blob/main/silicon_compiler_mod_A_in_mod_B.py)
+ detailed below.
 
 To  run this script:<br>
 
 ```
-docker run --rm -v "$(pwd):/sc_work" ghcr.io/siliconcompiler/sc_runner:v0.35.3 python3 silicon_compiler_mod_A_in_mod_B.py
+docker run --rm -v "$(pwd):/sc_work" \
+  ghcr.io/siliconcompiler/sc_runner:v0.35.3 \
+  python3 silicon_compiler_mod_A_in_mod_B.py
 ```
 
 The output will appear in: ``./build/B/job0/write.gds/0/outputs/B.png``
