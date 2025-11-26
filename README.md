@@ -17,7 +17,8 @@ another [module](https://en.wikipedia.org/wiki/Modular_programming) by:
 
 All these steps are contained in the single [Python](https://www.python.org/) [script](https://en.wikipedia.org/wiki/Scripting_language) detailed below.
 
-To  run this [script](https://en.wikipedia.org/wiki/Scripting_language): 
+To  run this script:<br>
+
 ```
 docker run --rm -v "$(pwd):/sc_work" ghcr.io/siliconcompiler/sc_runner:v0.35.3 python3 silicon_compiler_mod_A_in_mod_B.py
 ```
