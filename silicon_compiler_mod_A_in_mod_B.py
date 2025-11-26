@@ -18,7 +18,7 @@
 #
 # 5. Running the ASIC flow on module **B**
 #
-# All these steps are contained in the python script ./silicon_compiler_mod_A_in_mod_B.py
+# All these steps are contained in the [python script](https:.,om/philiprbrenan/silicon_compiler_mod_A_in_mod_B/blob/main/silicon_compiler_mod_A_in_mod_B.py)
 #  detailed below.
 #
 # To  run this script:<br>
