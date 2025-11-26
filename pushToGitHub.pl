@@ -27,13 +27,32 @@ my @ext     = qw(.md .pl .py .sh);                                              
 say STDERR timeStamp,  " Push to github $repo";
 
 if (1)                                                                          # Create read me from python code
- {my @p = map {length > 2 ? substr($_, 2) : "\n"}                               # Handle empty lines when removing comment start
-          grep {m(\A#)}                                                         # Read me is in comments
-          readFile fpe $home, $repo, q(py);                                     # Read python
+ {my @p = readFile fpe $home, $repo, q(py);                                     # Read python
   shift @p;                                                                     # Remove shebang
 
-  my $p = expandWellKnownWordsAsUrlsInMdFormat join "", @p;                     # Expand README
-  owf(fpe($home, qw(README md)), $p);                                           # Write extracted mark down to read me file
+  my $lc = 1;                                                                   # Was the last line a comment
+  my @q;
+  for my $p(@p)                                                                 # Each line
+   {if ($p =~ m(\A#)is)                                                         # A comment line
+     {$p =~ s(\A# ?) ()igs;                                                     # Remove comment to reveal documentation
+      if (!$lc)                                                                 # Last line was not a comment
+       {push @q, qq(```\n\n);                                                   # End last code block
+       }
+      push @q, $p;                                                              # Add comment line
+      $lc = 1;                                                                  # Last line was a comment
+     }
+    else                                                                        # Not a comment
+     {if ($lc)                                                                  # Last line was a comment
+       {push @q, qq(\n```\n);                                                   # Start new code block
+       }
+      push @q, $p;                                                              # Push code line
+      $lc = 0;                                                                  # Last line was code
+     }
+   }
+
+
+  my $q = expandWellKnownWordsAsUrlsInMdFormat join "", @q;                     # Expand README
+  owf(fpe($home, qw(README md)), $q);                                           # Write extracted mark down to read me file
  }
 
 my @files = searchDirectoryTreesForMatchingFiles($home, @ext);                  # Files to upload
