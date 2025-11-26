@@ -126,24 +126,14 @@ if __name__ == "__main__":
 
       self.add_asic_pdk(modA.get("asic", "pdk"))
 
-      def add_generated_file(extension):
-        pattern = f"build/**/{A}.{extension}"
-        matches = self.find_files(pattern)
-
-        if not matches:
-          self.error(f"Could not find file for {A} with extension: {extension}")
-        file = matches[0]
-        print(f"Added file: {file}")
-        self.add_file(file)
-
       with self.active_fileset("models.physical"):
-        add_generated_file("lef")
-        add_generated_file("slow.lib")
-        add_generated_file("gds")
+        self.add_file(f"./build/{A}/job0/write.views/0/outputs/{A}.lef")
+        self.add_file(f"./build/{A}/job0/write.views/0/outputs/{A}.slow.lib")
+        self.add_file(f"./build/{A}/job0/write.gds/0/outputs/{A}.gds")
         self.add_asic_aprfileset()
 
       with self.active_fileset("models.timing.nldm"):
-        self.add_file("slow.lib")
+        self.add_file(f"./build/{A}/job0/write.views/0/outputs/{A}.slow.lib")
         self.add_asic_libcornerfileset("generic", "nldm")
 #
 # ## Step 4: Create Verilog for a module **B** that instantiates **A**
