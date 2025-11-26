@@ -69,6 +69,9 @@ in the ``ASIC`` flow for **B**.
 
 Setting core and [die](http://perldoc.perl.org/functions/die.html) area correctly is crucial for successful macro placement.
 
+task = get_task(project_b, filter=WriteViewsTask)                             # Instance of the WriteViewsTask in the flowgraph
+task = WriteViewsTask.find_task(project_b)
+task.set("var", "ord_enable_images", False)                                   # Disable the image generation (including the gif) that is failing for the write.data step
 
 ## Conclusion
 
