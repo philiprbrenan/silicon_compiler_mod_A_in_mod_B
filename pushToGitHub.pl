@@ -31,7 +31,9 @@ if (1)                                                                          
           grep {m(\A#)}                                                         # Read me is in comments
           readFile fpe $home, $repo, q(py);                                     # Read python
   shift @p;                                                                     # Remove shebang
-  owf(fpe($home, qw(README md)), join "", @p);                                  # Write extracted mark down to read me file
+
+  my $p = expandWellKnownWordsAsUrlsInMdFormat join "", @p;                     # Expand README
+  owf(fpe($home, qw(README md)), $p);                                           # Write extracted mark down to read me file
  }
 
 my @files = searchDirectoryTreesForMatchingFiles($home, @ext);                  # Files to upload
@@ -46,9 +48,6 @@ if (!@files)                                                                    
 if  (1)                                                                         # Upload via github crud
  {for my $s(@files)                                                             # Upload each selected file
    {my $c = readBinaryFile $s;                                                  # Load file
-
-    $c = expandWellKnownWordsAsUrlsInMdFormat $c if $s =~ m(README);            # Expand README
-
     my $t = swapFilePrefix $s, $home;                                           # File on github
     my $w = writeFileUsingSavedToken($user, $repo, $t, $c);                     # Write file into github
     lll "$w  $t";
