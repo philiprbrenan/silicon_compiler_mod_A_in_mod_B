@@ -30,8 +30,8 @@
 #
 
 if __name__ == "__main__":
-  import multiprocessing as mp
-  mp.set_start_method("fork")                                                   # Use fork instead of spawn
+#  import multiprocessing as mp
+#  mp.set_start_method("fork")                                                   # Use fork instead of spawn
 
   import os
   from pathlib import Path
