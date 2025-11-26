@@ -78,11 +78,11 @@ if __name__ == "__main__":
       input  wire          clk,
       input  wire[{N}-1:0] a,
       input  wire[{N}-1:0] b,
-      output wire[{N}-1:0] y
+      output reg [{N}-1:0] y
   );
 
     always @ (posedge clk) begin
-      y <= a & b;
+      y = a & b;
     end
   endmodule
   """
@@ -147,11 +147,11 @@ module {B}(
     input  wire[{N}-1:0] b1,
     input  wire[{N}-1:0] a2,
     input  wire[{N}-1:0] b2,
-    output wire[{N}-1:0] y
+    output reg [{N}-1:0] y
 );
 
-    wire[{N}-1:0] d1;
-    wire[{N}-1:0] d2;
+    reg[{N}-1:0] d1;
+    reg[{N}-1:0] d2;
 
     {A} D1 (.clk(clk), .a(a1), .b(b1), .y(d1));
     {A} D2 (.clk(clk), .a(a2), .b(b2), .y(d2));
@@ -181,8 +181,8 @@ endmodule
   project_b.constraint.area.set_corearea_rectangle(SIZE-BORDER*2, SIZE-BORDER*2, (BORDER, BORDER))
 
   project_b.add_fileset(['verilog'])
-  skywater130_demo(project_b)                                                   # Technology being used
   project_b.add_asiclib(ModA(project_a))                                        # Add the hard macro for module A
+  skywater130_demo(project_b)                                                   # Technology being used
 
   project_b.run()
   project_b.summary()
