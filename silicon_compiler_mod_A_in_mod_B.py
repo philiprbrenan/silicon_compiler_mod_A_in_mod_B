@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # # Instantiating a hardened module **A** twice in a module **B**
 #
 # Hardened modules allow predictable timing, efficient placement, and scalable
