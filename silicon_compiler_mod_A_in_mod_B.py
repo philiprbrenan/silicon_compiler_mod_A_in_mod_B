@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
       def add_generated_file(extension):
         pattern = f"build/{A}/**/{A}.{extension}"
-        matches = chip.find_files(pattern)
+        matches = self.find_files(pattern)
 
         if not matches:
           self.error(f"Could not find file for {A} with extension: {extension}")
