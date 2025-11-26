@@ -31,7 +31,6 @@ say STDERR timeStamp,  " Push to github $repo";
 
 if (1)                                                                          # Create read me from python code
  {my @p = readFile fpe $home, $repo, q(py);                                     # Read python
-  shift @p;                                                                     # Remove shebang
 
   my $lc = 1;                                                                   # Was the last line a comment
   my @q;
