@@ -114,7 +114,10 @@ my $f = writeFileUsingSavedToken $user, $repo, $wf, $yml;                       
 lll "$f  Ubuntu work flow for $repo";
 
 sub upload($file)                                                               # Position a file for pushing to silicon compiler
- {copyFile($file,  fpf $upload, $file);
+ {my $s = $file;
+  my $t = fpf $upload, $file;
+  copyFile($s, $t);
+  say STDERR "Copied $s to $t";
  }
 
 upload(q(README.md));
