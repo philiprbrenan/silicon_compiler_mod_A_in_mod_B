@@ -9,9 +9,13 @@
 # another module by:
 #
 # 1. Writing a simple verilog module **A**
+#
 # 2. Synthesizing, placing, and routing **A** using siliconCompiler
+#
 # 3. Packaging the resulting layout and timing models from **A** as a hard macro
+#
 # 4. Instantiating the hard macro **A** twice inside a second module **B**
+#
 # 5. Running the ASIC flow on module **B**
 #
 # All these steps are contained in the single python script detailed below.
