@@ -127,7 +127,7 @@ if __name__ == "__main__":
       self.add_asic_pdk(modA.get("asic", "pdk"))
 
       def add_generated_file(extension):
-        pattern = f"build/{A}/**/{A}.{extension}"
+        pattern = f"build/**/{A}.{extension}"
         matches = self.find_files(pattern)
 
         if not matches:
