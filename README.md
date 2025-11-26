@@ -7,8 +7,12 @@ This tutorial demonstrates how to use [Silicon Compiler](https://docs.siliconcom
 another [module](https://en.wikipedia.org/wiki/Modular_programming) by:
 
 1. Writing a simple [Verilog](https://en.wikipedia.org/wiki/Verilog) [module](https://en.wikipedia.org/wiki/Modular_programming) **A**
-2. Synthesizing, placing, and routing **A** using [Silicon Compiler](https://docs.siliconcompiler.com/en/latest/index.html) 3. Packaging the resulting layout and timing models from **A** as a hard macro
+
+2. Synthesizing, placing, and routing **A** using [Silicon Compiler](https://docs.siliconcompiler.com/en/latest/index.html) 
+3. Packaging the resulting layout and timing models from **A** as a hard macro
+
 4. Instantiating the hard macro **A** twice inside a second [module](https://en.wikipedia.org/wiki/Modular_programming) **B**
+
 5. Running the ASIC flow on [module](https://en.wikipedia.org/wiki/Modular_programming) **B**
 
 All these steps are contained in the single [Python](https://www.python.org/) [script](https://en.wikipedia.org/wiki/Scripting_language) detailed below.
