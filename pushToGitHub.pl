@@ -46,7 +46,7 @@ if (1)                                                                          
      }
     else                                                                        # Not a comment
      {if ($lc)                                                                  # Last line was a comment
-       {push @q, qq(\n```\n);                                                   # Start new code block
+       {push @q, qq(\n```python\n);                                             # Start new code block
        }
       push @q, $p;                                                              # Push code line
       $lc = 0;                                                                  # Last line was code
