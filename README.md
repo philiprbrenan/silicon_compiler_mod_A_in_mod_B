@@ -210,8 +210,8 @@ Setting core and die area correctly is crucial for successful macro placement.
   project_b.constraint.area.set_corearea_rectangle(SIZE-BORDER*2, SIZE-BORDER*2, (BORDER, BORDER))
 
   project_b.add_fileset(['verilog'])
-  project_b.add_asiclib(ModA(project_a))                                        # Add the hard macro for module A
   skywater130_demo(project_b)                                                   # Technology being used
+  project_b.add_asiclib(ModA(project_a))                                        # Add the hard macro for module A
 
   project_b.run()
   project_b.summary()
