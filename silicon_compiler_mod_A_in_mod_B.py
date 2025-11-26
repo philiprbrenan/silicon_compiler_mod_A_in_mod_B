@@ -30,9 +30,6 @@
 #
 
 if __name__ == "__main__":
-#  import multiprocessing as mp
-#  mp.set_start_method("fork")                                                   # Use fork instead of spawn
-
   import os
   from pathlib import Path
 
@@ -185,10 +182,6 @@ endmodule
   project_b.add_fileset(['verilog'])
   project_b.add_asiclib(ModA(project_a))                                        # Add the hard macro for module A
   skywater130_demo(project_b)                                                   # Technology being used
-
-# task = get_task(project_b, filter=WriteViewsTask)                             # Instance of the WriteViewsTask in the flowgraph
-# task = WriteViewsTask.find_task(project_b)
-# task.set("var", "ord_enable_images", False)                                   # Disable the image generation (including the gif) that is failing for the write.data step
 
   project_b.run()
   project_b.summary()
