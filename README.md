@@ -15,7 +15,7 @@ another [module](https://en.wikipedia.org/wiki/Modular_programming) by:
 
 5. Running the ASIC flow on [module](https://en.wikipedia.org/wiki/Modular_programming) **B**
 
-All these steps are contained in the [python script](https://github.com/philiprbrenan/silicon_compiler_mod_A_in_mod_B/blob/main/silicon_compiler_mod_A_in_mod_B.py)
+All these steps are contained in the [Python](https://www.python.org/) [script](https://en.wikipedia.org/wiki/Scripting_language) ./silicon_compiler_mod_A_in_mod_B.py
  detailed below.
 
 To  run this script:<br>
