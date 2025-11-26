@@ -3,6 +3,7 @@
 # Use silicon compiler via a docker image previously built on github
 # Philip R Brenan at gmail dot com, Appa Apps Ltd Inc., 2025
 #-------------------------------------------------------------------------------
+# Manually push ../siliconCompiler when ready
 use v5.38;
 use warnings FATAL => qw(all);
 use strict;
