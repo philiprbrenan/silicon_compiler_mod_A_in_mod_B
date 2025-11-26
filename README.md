@@ -24,6 +24,8 @@ The output will appear in: ``./build/B/job0/write.gds/0/outputs/B.png``
 
 Import the tools to be used:
 
+ import multiprocessing as mp
+ mp.set_start_method("fork")                                                   # Use [fork](https://en.wikipedia.org/wiki/Fork_(system_call)) instead of spawn
 
 ## Parameters
 
