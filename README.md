@@ -24,8 +24,6 @@ The output will appear in: ``./build/B/job0/write.gds/0/outputs/B.png``
 
 Import the tools to be used:
 
- import multiprocessing as mp
- mp.set_start_method("fork")                                                   # Use [fork](https://en.wikipedia.org/wiki/Fork_(system_call)) instead of spawn
 
 ## Parameters
 
@@ -69,9 +67,6 @@ in the ``ASIC`` flow for **B**.
 
 Setting core and [die](http://perldoc.perl.org/functions/die.html) area correctly is crucial for successful macro placement.
 
-task = get_task(project_b, filter=WriteViewsTask)                             # Instance of the WriteViewsTask in the flowgraph
-task = WriteViewsTask.find_task(project_b)
-task.set("var", "ord_enable_images", False)                                   # Disable the image generation (including the gif) that is failing for the write.data step
 
 ## Conclusion
 
