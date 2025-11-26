@@ -15,6 +15,8 @@ my $repo    = q(silicon_compiler_mod_A_in_mod_B);                               
 my $user    = q(philiprbrenan);                                                 # User
 my $home    = fpd q(/home/phil/sc/), $repo;                                     # Home folder
 my $wf      = q(.github/workflows/mod_A_in_mod_B.yml);                          # Work flow on Ubuntu
+my $upload  = q(../siliconcompiler/examples/mod_A_in_mod_B/);                   # This folder will be loaded with the read me and python code ready for a manual push o siliconCompiler
+
 my $docker  = "ghcr.io/philiprbrenan/silicon_compiler_docker_image_asic:latest";# Docker image built on github by me
    $docker  = "ghcr.io/siliconcompiler/sc_runner:v0.35.3";                      # Docker image built on Silicon Compiler
 
@@ -49,7 +51,6 @@ if (1)                                                                          
       $lc = 0;                                                                  # Last line was code
      }
    }
-
 
   my $q = expandWellKnownWordsAsUrlsInMdFormat join "", @q;                     # Expand README
   owf(fpe($home, qw(README md)), $q);                                           # Write extracted mark down to read me file
@@ -111,3 +112,10 @@ END
 
 my $f = writeFileUsingSavedToken $user, $repo, $wf, $yml;                       # Upload workflow
 lll "$f  Ubuntu work flow for $repo";
+
+sub upload($file)                                                               # Position a file for pushing to silicon compiler
+ {copyFile($file,  fpf $upload, $file);
+ }
+
+upload(q(README.md));
+upload(q(silicon_compiler_mod_A_in_mod_B.py));
